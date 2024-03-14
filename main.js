@@ -93,6 +93,7 @@ averageSelectedh3.innerText = `The average starting price is $${arrAverage}` // 
 // setInterval will call the push() function every 3000 milliseconds 
 
 // I also need a way to display my array on the webpage without hard-coding it
-// I think simply adding objects to the original array with the above mentioned methods will do that itself! Yay!
+// I think simply adding objects to the original array with the above mentioned methods will do that.. IF I somehow put the array onto the page
+// can an array be sent to HTML as a list? How can an array be listed on a website in an understandable way?
 
   
