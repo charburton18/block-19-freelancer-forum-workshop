@@ -70,3 +70,29 @@ const arrAverage = getAverage(originalFreelanceArr); // returns the average star
 const averageSelectedh3 = document.querySelector('#average');
 
 averageSelectedh3.innerText = `The average starting price is $${arrAverage}` // this puts our array's average startingPrice into the HTML :)
+
+
+// next I have to push more objects in a new array into the existing array every 3 seconds
+
+// Let's define an array with more objects in it
+
+// const freelancers = [
+  //   { name: "Dr. Slice", price: 25, occupation: "gardener" },
+  //   { name: "Dr. Pressure", price: 51, occupation: "programmer" },
+  //   { name: "Prof. Possibility", price: 43, occupation: "teacher" },
+  //   { name: "Prof. Prism", price: 81, occupation: "teacher" },
+  //   { name: "Dr. Impulse", price: 43, occupation: "teacher" },
+  //   { name: "Prof. Spark", price: 76, occupation: "programmer" },
+  //   { name: "Dr. Wire", price: 47, occupation: "teacher" },
+  //   { name: "Prof. Goose", price: 72, occupation: "driver" },
+  // ];
+  
+
+// I have to push the objects from freelancers array into the existing originalFreelanceArr every 3 seconds
+// I will be using setInterval() and push()
+// setInterval will call the push() function every 3000 milliseconds 
+
+// I also need a way to display my array on the webpage without hard-coding it
+// I think simply adding objects to the original array with the above mentioned methods will do that itself! Yay!
+
+  
