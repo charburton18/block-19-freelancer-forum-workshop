@@ -34,18 +34,23 @@ startingPrice: 50
 },
 ];
 
-
-
-
-
-
+const newFreelancerArr = [
+    { name: "Dr. Slice", price: 25, occupation: "gardener" },
+    { name: "Dr. Pressure", price: 51, occupation: "programmer" },
+    { name: "Prof. Possibility", price: 43, occupation: "teacher" },
+    { name: "Prof. Prism", price: 81, occupation: "teacher" },
+    { name: "Dr. Impulse", price: 43, occupation: "teacher" },
+    { name: "Prof. Spark", price: 76, occupation: "programmer" },
+    { name: "Dr. Wire", price: 47, occupation: "teacher" },
+    { name: "Prof. Goose", price: 72, occupation: "driver" },
+  ];
 
 //render(); // We call this function once to render the initial state
 
 /**
  * Update the DOM to reflect the current state.
  * The term "render" is often used to describe this process.
- */
+*/
 
 // GET THE AVERAGE PRICE OF THE CURRENT ARRAY
 
@@ -71,21 +76,40 @@ const averageSelectedh3 = document.querySelector('#average');
 
 averageSelectedh3.innerText = `The average starting price is $${arrAverage}` // this puts our array's average startingPrice into the HTML :)
 
+// Help from Anusha:
+// How to put the array in the HTML?
+// what if every 3 seconds I grab the first element of arr2 and push onto arr1?
+// pushArrFunc takes in 2 arrays
+const pushArrFunc = (arr1, arr2) => {
+  // slice 0th index of arr2
+  // push 0th index of arr2 into arr1
+  // loop through arr2 and take out the arr elements in order. 
+    // splice out the currentArrElement and place it into arr1
+  for(let i = 0; i < newFreelancerArr.length; i++) {
+  const splicedFreelancerArr = arr2.splice(i);
+  setInterval(arr1.push(splicedFreelancerArr[i]), 3000);
+  }
+  return arr1;
+}
+console.log(pushArrFunc(originalFreelanceArr, newFreelancerArr));
+//define pushEvery3Sec
+// console.log(setInterval(pushArrFunc(originalFreelanceArr, newFreelancerArr), 3000));
+//console.log(pushEvery3Sec(pushArrFunc(originalFreelanceArr, newFreelancerArr)));
+
+// use querySelector to grab the ul
+// First create li's with the document.createElement("li") in the DOM
+// use replaceChildren() to replace the ul's (#ulFreelancerList) children with the keyvalues of each object
+  // first li is Dr. slice
+  //  
+
+
+
+
 
 // next I have to push more objects in a new array into the existing array every 3 seconds
 
 // Let's define an array with more objects in it
 
-// const freelancers = [
-  //   { name: "Dr. Slice", price: 25, occupation: "gardener" },
-  //   { name: "Dr. Pressure", price: 51, occupation: "programmer" },
-  //   { name: "Prof. Possibility", price: 43, occupation: "teacher" },
-  //   { name: "Prof. Prism", price: 81, occupation: "teacher" },
-  //   { name: "Dr. Impulse", price: 43, occupation: "teacher" },
-  //   { name: "Prof. Spark", price: 76, occupation: "programmer" },
-  //   { name: "Dr. Wire", price: 47, occupation: "teacher" },
-  //   { name: "Prof. Goose", price: 72, occupation: "driver" },
-  // ];
   
 
 // I have to push the objects from freelancers array into the existing originalFreelanceArr every 3 seconds
