@@ -79,7 +79,7 @@ averageSelectedh3.innerText = `The average starting price is $${arrAverage}`
 
 // What if every 3 seconds I grab the first element of arr2 and push onto arr1?
 // pushArrFunc takes in 2 arrays
-// create variable const firstItem = arr 2's first element that gets spliced, sliced, or shifted 
+// create variable const firstItem = arr 2's first element that gets shifted (shift returns new array of shifted items)
 // firstItem gets pushed into the end of the new array (push returns array length)
 // return arr1
 const pushArrFunc = (arr1, arr2) => {
@@ -88,7 +88,10 @@ const pushArrFunc = (arr1, arr2) => {
   console.log(arr1);
   return arr1;
 }
-setInterval(() => {pushArrFunc(fArr1, fArr2)}, 3000);
+// Call the pushArrFunc function with the given arguments every 3 seconds. 
+// Write setInterval's callback function as an anonymous callback function that then calls pushArrFunc with given args
+setInterval(() => {pushArrFunc(fArr1, fArr2)}, 3000); 
+
 
 // IF I WANTED TO STOP THE SET INTERVAL -------------------------------------
 // setInterval(() => {pushArrFunc(fArr1, fArr2)}, 3000);
@@ -98,35 +101,45 @@ setInterval(() => {pushArrFunc(fArr1, fArr2)}, 3000);
 //   clearInterval(returnID);
 // }
 
+// ^Not functioning
+
+
 // DISPLAY fArr1 ON THE PAGE -------------------------------------------------
-
-
-
-//   // slice 0th index of arr2
-//   // push 0th index of arr2 into arr1
-//   // loop through arr2 and take out the arr elements in order. 
-//     // splice out the currentArrElement and place it into arr1
-//   for(let i = 0; i < fArr2.length; i++) {
-//   const splicedFreelancerArr = arr2.splice(i);
-//   setInterval(arr1.push(splicedFreelancerArr[i]), 3000);
-//   }
-//   return arr1;
-// }
-// console.log(pushArrFunc(fArr1, fArr2));
-//define pushEvery3Sec
-// console.log(setInterval(pushArrFunc(fArr1, fArr2), 3000));
-//console.log(pushEvery3Sec(pushArrFunc(fArr1, fArr2)));
-
-
 // How to put the array in the HTML?
-// use querySelector to grab the ul
-// First create li's with the document.createElement("li") in the DOM
-// use replaceChildren() to replace the ul's (#ulFreelancerList) children with the keyvalues of each object
-  // first li is Dr. slice
-  //  
 
+// create myNames, myOcc, and myPrice arrays inside createArraysFunc (result arrs of mapping onto fArr1. Map does NOT mutate.)
+const createArraysFunc = () => {
+const myNames = fArr1.map((currentObject) => {return currentObject.name})
+console.log(myNames);
 
+const myOcc = fArr1.map((currentObject) => {return currentObject.occupation})
+console.log(myOcc);
 
+const myPrice = fArr1.map((currentObject) => {return currentObject.price})
+console.log(myPrice);
+}
+
+// use querySelector to grab the uls
+const ul1 = document.querySelector('#ul1');
+const ul2 = document.querySelector('#ul2');
+const ul3 = document.querySelector('#ul3');
+
+// First create 3 li's with the document.createElement("ul") in the DOM (every 3 seconds?) using .createElement('li')
+const createLi = () => {
+const li = document.createElement('li');
+li.innerHTML = 'hello';
+return li;
+}
+createLi();
+createLi();
+createLi();
+
+// use replaceChildren() to replace the ul's (#ulFreelancerList) children with myNames, myOcc, and myPrice.
+ul1.replaceChildren(...myNames);
+ul2.replaceChildren(...myOcc);
+ul3.replaceChildren(...myPrice);
+
+console.log(ul1);
 
 
 // next I have to push more objects in a new array into the existing array every 3 seconds
